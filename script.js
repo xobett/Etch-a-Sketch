@@ -1,22 +1,46 @@
-// GRID SETTINGS
+//#region GRID SETTINGS
 const grid = document.querySelector(".grid");
 
-const gridWidth = grid.clientWidth;
-const gridHeight = grid.clientHeight;
+let gridWidth = grid.clientWidth;
+let gridHeight = grid.clientHeight;
 
-// BUTTONS
+//#endregion GRID SETTINGS
+
+//#region BUTTONS
 const solidModeBtn = document.querySelector(".solid-mode-button");
 const transparentModeBtn = document.querySelector(".transparent-mode-button");
 
 const blackColorBtn = document.querySelector(".black-color-button");
 const rgbColorBtn = document.querySelector(".rgb-color-button");
 
-solidModeBtn.addEventListener("click", () => resetGrid())
+const resizeBtn = document.querySelector(".resize-button");
+resizeBtn.addEventListener("click", () => resizeGrid());
 
+//#endregion BUTTONS
 
-drawGrid(16)
+let windowResized = false; 
+window.addEventListener("resize", () => resizeAlert());
+
+resetGrid();
+drawGrid(16);
+
+// FUNCTIONS
+
+function incrementAlpha(elem) {
+    const computedElem = window.getComputedStyle(elem);
+    console.log(computedElem.getPropertyValue("color"));
+}
+
+function resizeGrid() {
+    const querySize = prompt("Enter your desired grid size from 1 - 100.");
+    resetGrid();
+    drawGrid(querySize);
+}
 
 function drawGrid(size) {
+    gridWidth = grid.clientWidth;
+    gridHeight = grid.clientHeight;
+
     unitWidth = gridWidth / size;
     unitHeight = gridHeight / size;
     
@@ -24,9 +48,10 @@ function drawGrid(size) {
         const unit = document.createElement("div");
         unit.setAttribute("class", "grid-unit");
 
-
         unit.style.setProperty("--unit-width", `${unitWidth}px`);
         unit.style.setProperty("--unit-height", `${unitHeight}px`);
+
+        unit.addEventListener("mouseenter", (e) => incrementAlpha(e.target))
     
         grid.appendChild(unit);
     }
@@ -40,16 +65,10 @@ function resetGrid() {
    }
 }
 
-let windowResized = false; 
-
 function resizeAlert() {
-    if (windowResized) return;
-    windowResized = true;
-
-    alert("Page will refresh to update grid size.");
-    location.reload();
+    resetGrid();
+    drawGrid(16)
 }
 
-window.addEventListener("resize", () => resizeAlert());
 
 

@@ -12,11 +12,6 @@ body{
     font-weight: bold;
 }
 
-.header-container,
-.body-container,
-.footer-container{
-    border: 1px solid red;
-}
 
 .header-container,
 .footer-container{
@@ -32,6 +27,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    box-shadow: 0px 3px 10px 2px rgba(0, 0, 0, 0.5);
 }
 
 .title{
@@ -48,15 +45,13 @@ body{
     display: flex;
 }
 
-.body-container > div{
-    border: 1px solid purple;
-}
 
 .grid-container{
     flex: auto;
+    flex-direction: column;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -64,8 +59,8 @@ body{
     flex-grow: 0;
 
     background-color: black;
-    height: 90%;
-    width: 80%;
+    height: 80%;
+    width: 60%;
 
     box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
 
@@ -97,10 +92,11 @@ body{
     justify-content: center;
     align-items: center;
     color: white;
+
+    border-left: 3px solid black;
 }
 
 .grid-settings-container > div{
-    border: 1px solid salmon;
     height: 50%;
     width: 100%;
 
@@ -111,22 +107,42 @@ body{
 
 }
 
-.solid-mode-button,
-.transparent-mode-button,
-.black-color-button,
-.rgb-color-button{
-    border: 1px solid purple;
+.resize-button.button{
+    width: 20%;
+    height: 6%;
 
-    background-color: rgb(134, 164, 209);
-    border-radius: 25px;
+    margin: 0;
+}
+
+.button{
+    border: 3px solid #1a1a1a;
+    background-image: linear-gradient(to bottom, #86a4d1, white);
+    
+    border-radius: 15px;
     box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
-
+    
     width: 70%;
     height: 30%;
-
+    
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    cursor: grab;
+    user-select: none;
+
+    text-align: center;
+}
+
+
+.button:hover{
+    background-color: #466eaa;
+}
+
+.button:active
+{
+    background-color: #67a3fc;
+    transform: scale(0.95);
 }
 
 /*FOOTER*/
@@ -135,6 +151,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    box-shadow: 0px -3px 10px 2px rgba(0, 0, 0, 0.5);
 }
 
 .credits-container{
@@ -144,7 +162,6 @@ body{
 
     height: 100%;
     min-width: 20%;
-    border: 1px solid green;
 }
 
 img{
