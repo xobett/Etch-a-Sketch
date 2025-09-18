@@ -69,7 +69,7 @@ body{
 }
 
 .grid-unit {
-    background-color: white;
+    background-color: rgba(255, 255, 255);
     border: 1px solid black;
     box-sizing: border-box;
 
@@ -80,7 +80,7 @@ body{
 }
 
 .grid-unit:hover{
-    background-color: lightslategrey;
+    /* background-color: rgba(119, 136, 153); */
 }
 
 .grid-settings-container{
@@ -116,7 +116,7 @@ body{
 
 .button{
     border: 3px solid #1a1a1a;
-    background-image: linear-gradient(to bottom, #86a4d1, white);
+    background-image: linear-gradient(#325994, #86a4d1, #294979, rgb(22, 21, 41));
     
     border-radius: 15px;
     box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
@@ -136,12 +136,12 @@ body{
 
 
 .button:hover{
-    background-color: #466eaa;
+    background-image: linear-gradient(#4780d4, #acccfc, #294979, rgb(66, 64, 116));
 }
 
 .button:active
 {
-    background-color: #67a3fc;
+    background-image: linear-gradient(#5ba2ff, #64d3ff, #3965a8, rgb(22, 21, 41));
     transform: scale(0.95);
 }
 
